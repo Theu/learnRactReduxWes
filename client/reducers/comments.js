@@ -1,5 +1,4 @@
 function comments(state = [], action) {
-  console.log('comments', state, action);
   return state;
 }
 
