@@ -3,7 +3,7 @@ import React from 'react';
 export default class Comments extends React.Component {
     constructor(props) {
       super(props);
-      // this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
 
     }
     renderComment(comment, i) {
