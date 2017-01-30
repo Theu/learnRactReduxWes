@@ -3,7 +3,8 @@ import React from 'react';
 export default class Comments extends React.Component {
     constructor(props) {
       super(props);
-      this.handleSubmit = this.handleSubmit.bind(this);
+      // this.handleSubmit = this.handleSubmit.bind(this);
+
     }
     renderComment(comment, i) {
       return(
@@ -18,11 +19,14 @@ export default class Comments extends React.Component {
     }
     handleSubmit(e) {
       e.preventDefault();
-      console.log('submitto');
       const { postId } = this.props.params;
       const author = this.refs.author.value;
       const comment = this.refs.comment.value;
       this.props.addComment(postId, author, comment);
+      this.refs.commentForm.reset();
+    }
+    handleRemove() {
+
     }
     render(){
         return(
@@ -31,7 +35,7 @@ export default class Comments extends React.Component {
                   <form ref="commentForm" className="comment-form" onSubmit={this.handleSubmit}>
                     <input type="text" ref="author" placeholder="author" />
                     <input type="text" ref="comment" placeholder="comment" />
-                    <input type="submit" hidden />
+                    <input type="submit" hidden onClick={this.handleRemove} />
                   </form>
             </div>
         )
